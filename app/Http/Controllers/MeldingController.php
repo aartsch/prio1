@@ -36,6 +36,11 @@ class MeldingController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+        ]);
+
         $melding = Melding::create([
             'name' => $request->input('name'),
             'description' => $request->input('description')
